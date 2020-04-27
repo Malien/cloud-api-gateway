@@ -2,7 +2,7 @@ import express, { Request, Response, NextFunction } from "express"
 import { version, author, name } from "./package.json"
 import httpProxy from "express-http-proxy";
 
-const { BIND_IP, PORT, AUTH_SERVICE_URL } = process.env
+const { BIND_ADDRESS, PORT, AUTH_SERVICE_URL } = process.env
 
 const app = express()
 
@@ -18,6 +18,6 @@ app.get("/serviceinfo", (req, res) => {
 
 const port = parseInt(PORT!)
 if (isNaN(port)) throw Error("Port is expected to be an integer")
-app.listen(port, BIND_IP!, 10000, () => {
-    console.log(`Started API Gatway server on ${BIND_IP}:${PORT}`)
+app.listen(port, BIND_ADDRESS!, 10000, () => {
+    console.log(`Started API Gatway server on ${BIND_ADDRESS}:${PORT}`)
 })

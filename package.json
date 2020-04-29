@@ -7,19 +7,27 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "node -r dotenv-safe/config out/index.js",
-    "build": "sh build.sh",
+    "start": "node -r dotenv-safe/config out/server.js",
+    "build": "sh scripts/build.sh",
+    "proto": "sh scripts/proto.sh",
     "clear": "rm -Rf out",
     "docker": "docker build -t invictamotum/api-gateway ."
   },
   "dependencies": {
+    "@grpc/proto-loader": "^0.5.3",
     "@types/express-http-proxy": "^1.6.0",
+    "axios": "^0.19.2",
     "dotenv-safe": "^8.2.0",
     "express": "^4.17.1",
-    "express-http-proxy": "^1.6.0"
+    "express-http-proxy": "^1.6.0",
+    "google-protobuf": "^3.11.4",
+    "grpc": "^1.24.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.6",
+    "@types/google-protobuf": "^3.7.2",
+    "grpc-tools": "^1.8.1",
+    "grpc_tools_node_protoc_ts": "^2.5.10",
     "typescript": "^3.8.3"
   }
 }

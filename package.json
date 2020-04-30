@@ -11,7 +11,7 @@
     "build": "sh scripts/build.sh",
     "proto": "sh scripts/proto.sh",
     "clear": "rm -Rf out",
-    "docker": "docker build -t invictamotum/api-gateway ."
+    "docker": "source .env && docker build -t invictamotum/api-gateway --build-arg port=$PORT ."
   },
   "dependencies": {
     "@grpc/proto-loader": "^0.5.3",

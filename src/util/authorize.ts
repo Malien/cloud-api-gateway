@@ -34,7 +34,7 @@ export default (url: string, routes?: string[]) =>
                 const payload = await verifyRPC(request)
                 delete headers["authorization"]
                 headers["user-id"] = payload.getId().toString()
-            } catch (e) { throw new APIError(e.message(), 401) }
+            } catch (e) { throw new APIError(e.message, 401) }
         }
 
         const redirectResponse = await axios({

@@ -7,7 +7,7 @@ const { BIND_ADDRESS, PORT, AUTH_SERVICE_URL, USER_SERVICE_URL } = process.env
 
 const app = express()
 
-app.use(bodyparser.raw())
+app.use(bodyparser.json())
 app.use("/auth", proxy(AUTH_SERVICE_URL!))
 app.use("/user", authorize(USER_SERVICE_URL!, ["/me", "/avatar", "/change"]))
 app.get("/serviceinfo", (_, res) => {
